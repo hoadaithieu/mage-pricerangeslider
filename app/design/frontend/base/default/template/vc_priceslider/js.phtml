@@ -1,0 +1,52 @@
+<?php
+$priceAr = $this->helper('vc_priceslider')->getPriceRange();
+?>
+<script type="text/javascript">
+//<![CDATA[
+var currency = '<?php echo $this->helper('vc_priceslider')->getCurrencyFormat()?>';
+
+function convertPrice(price) {
+	_currency = currency;
+	return _currency.replace('%', price);
+}
+
+jQuery(function() {
+	_currency = currency;
+	slider_range = '#slider-range';
+	$j(slider_range).slider({
+		range: true,
+		min: <?php echo $this->helper('vc_priceslider')->getMinPriceRange();?>,
+		max: <?php echo $this->helper('vc_priceslider')->getMaxPriceRange();?>,
+		values: [<?php echo $priceAr[0];?>, (<?php echo $priceAr[1];?> ==0 ? <?php echo $this->helper('vc_priceslider')->getMaxPriceRange();?> :<?php echo $priceAr[1];?> )],
+		
+		slide: function(event, ui) {
+			_currency = currency;
+			$j("#vc_amount").html(convertPrice(ui.values[0]) + " - " + convertPrice(ui.values[1]));
+		},
+		change: function(event, ui) {
+			PriceRange.getContent(null, 'price=' + ui.values[ 0 ] + "-" + ui.values[ 1 ]);
+		}
+	});
+	
+	$j("#vc_amount").html( convertPrice($j(slider_range).slider("values", 0)) + " - " + convertPrice($j(slider_range).slider("values", 1)));
+
+});
+
+
+
+PriceRange.options.container = '<?php echo $this->helper('vc_priceslider')->getContainer();?>';
+PriceRange.options.overlay = '.vcps-waiting';
+PriceRange.options.formKey = '<?php echo Mage::getSingleton('core/session')->getFormKey();?>';
+PriceRange.options.url = '<?php echo $this->helper('vc_priceslider')->getFilterUrl();?>';
+PriceRange.options.id = <?php echo Mage::app()->getRequest()->getParam('id', false);?>;
+PriceRange.options.currentLayout = '<?php echo Mage::app()->getLayout()->getBlock('root')->getTemplate();?>';
+
+$j(function() {
+	jQuery('.vcps-waiting').remove();
+	jQuery(PriceRange.options.container).css('position','relative');
+	jQuery(PriceRange.options.container).append('<div class="vcps-waiting" style="display:none"><img src="<?php echo $this->getSkinUrl('vc_priceslider/images/ajax-loader.gif');?>"/></div>');
+});
+
+//]]>
+
+</script>

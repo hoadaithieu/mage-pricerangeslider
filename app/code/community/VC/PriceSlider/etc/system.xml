@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+        <vc_priceslider translate="label" module="vc_priceslider">
+            <label>PriceSlider Settings</label>
+			<tab>vc_all</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>400</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+        	<groups>
+        		<general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+                    <fields>
+						<enable translate="label">
+							<label>Enable</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</enable>
+
+						<container_3columns translate="label">
+							<label>Container for 3columns layout</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</container_3columns>
+						
+						<container_2columns_left translate="label">
+							<label>Container for 2columns left layout</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</container_2columns_left>						
+				
+						<min_price_range translate="label">
+							<label>Min of price range</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</min_price_range>						
+						
+						<max_price_range translate="label">
+							<label>Max of price range</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</max_price_range>						
+
+						<currency_format translate="label">
+							<label>Currency format</label>
+                            <frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment><![CDATA[]]></comment>
+						</currency_format>						
+												
+                    </fields>
+	            </general>	
+			</groups>
+		</vc_priceslider>
+	</sections>			
+</config>

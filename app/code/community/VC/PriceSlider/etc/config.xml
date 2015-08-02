@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VC_PriceSlider>
+            <version>1.0.0</version>
+        </VC_PriceSlider>
+    </modules>
+    <frontend>
+        <routers>
+            <vc_priceslider>
+                <use>standard</use>
+                <args>
+                    <module>VC_PriceSlider</module>
+                    <frontName>vc_priceslider</frontName>
+                </args>
+            </vc_priceslider>
+        </routers>
+        <layout>
+            <updates>
+                <vc_priceslider>
+                    <file>vc_priceslider.xml</file>
+                </vc_priceslider>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<vc_priceslider>
+				<use>admin</use>
+				<args>
+					<module>VC_PriceSlider</module>
+					<frontName>vc_priceslider</frontName>
+				</args>
+			</vc_priceslider>
+        </routers>
+    </admin>
+    <adminhtml>
+		
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<vc_all>
+							<children>
+					
+								<vc_priceslider>
+									<title>VC PriceSlider</title>
+									<sort_order>70</sort_order>						
+									
+								</vc_priceslider>
+							</children>
+						</vc_all>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <vc_priceslider>
+                                            <title>VC PriceSlider Section</title>
+                                        </vc_priceslider>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+												
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<vc_priceslider>
+					<file>vc_priceslider.xml</file>
+				</vc_priceslider>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <vc_priceslider>
+                <class>VC_PriceSlider_Model</class>
+                <resourceModel>vc_priceslider_resource</resourceModel>
+            </vc_priceslider>
+        </models>	
+		
+		<resources>
+			<vc_priceslider_setup>
+				<setup>
+					<module>VC_PriceSlider</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</vc_priceslider_setup>
+			<vc_priceslider_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</vc_priceslider_write>
+			<vc_priceslider_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</vc_priceslider_read>
+		</resources>
+				
+        <blocks>
+            <vc_priceslider>
+                <class>VC_PriceSlider_Block</class>
+            </vc_priceslider>
+			
+			<catalog>
+				<rewrite>
+					<layer_filter_attribute>VC_PriceSlider_Block_Catalog_Layer_Filter_Attribute</layer_filter_attribute>
+					<layer_filter_decimal>VC_PriceSlider_Block_Catalog_Layer_Filter_Decimal</layer_filter_decimal>
+					<layer_filter_price>VC_PriceSlider_Block_Catalog_Layer_Filter_Price</layer_filter_price>
+					<layer_state>VC_PriceSlider_Block_Catalog_Layer_State</layer_state>
+				</rewrite>
+			</catalog>
+        </blocks>
+	
+        <helpers>
+            <vc_priceslider>
+                <class>VC_PriceSlider_Helper</class>
+            </vc_priceslider>
+        </helpers>
+		
+    </global>
+	
+	<default>
+		<vc_priceslider>
+			<general>
+				<enable>0</enable>
+				<container_3columns>.col-wrapper</container_3columns>
+				<container_2columns_left>.main</container_2columns_left>
+				<min_price_range>0</min_price_range>
+				<max_price_range>10000</max_price_range>
+				<currency_format>% $US</currency_format>
+			</general>
+		</vc_priceslider>
+	</default>
+	
+</config>

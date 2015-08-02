@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_layered>
+		<reference name="head">
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_css</type><name>vc_priceslider/css/jquery-ui.css</name><params/></action>
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_css</type><name>vc_priceslider/css/styles.css</name><params/></action>
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_js</type><name>vc_priceslider/js/jquery/jquery-1.10.2.js</name><params/></action>
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_js</type><name>vc_priceslider/js/jquery/noconflict.js</name><params/></action>
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_js</type><name>vc_priceslider/js/ui/1.11.4/jquery-ui.js</name><params/></action>
+			<action method="addItem" ifconfig="vc_priceslider/general/enable"><type>skin_js</type><name>vc_priceslider/js/scripts.js</name><params/></action>
+		</reference>	
+		<reference name="content">
+			<block type="vc_priceslider/js" name="vc_priceslider.js" as="vc_priceslider.js">
+				<action method="setTemplate" ifconfig="vc_priceslider/general/enable"><template>vc_priceslider/js.phtml</template></action>
+			</block>
+		</reference>
+	
+		<reference name="catalog.leftnav">
+			<action method="setTemplate" ifconfig="vc_priceslider/general/enable"><template>vc_priceslider/catalog/layer/view.phtml</template></action>
+		</reference>
+	</catalog_category_layered>
+	
+	<vc_priceslider_catalog_category_layered translate="label">
+        <label>Catalog Category (Anchor)</label>
+        <remove name="head"/>
+        <remove name="foot"/>
+        <!-- Mage_Checkout -->
+        <reference name="root">
+            <action method="setTemplate" ifconfig="vc_priceslider/general/enable"><template>vc_priceslider/container-3columns.phtml</template></action>
+        </reference>
+    </vc_priceslider_catalog_category_layered>	
+</layout>
